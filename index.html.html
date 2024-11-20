@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ASSIGNMENT OF Javascript</title>
+</head>
+<style>
+  body {
+    background: linear-gradient(135deg, #e663ba, #3bb5da);
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+fieldset {
+    border: 2px solid #D1D9E6;
+    border-radius: 8px;
+    padding: 20px;
+    background: linear-gradient(135deg, #747be0, #ca1493); 
+    margin-bottom: 20px;
+}
+button {
+    width: 100%;
+    padding: 12px;
+    background: linear-gradient(135deg, #979fe0, #ee6197); 
+    color: rgb(15, 15, 15);
+    border: none;
+    border-radius: 8px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+input[type="text"], input[type="email"] {
+    width: 50%;
+    padding: 12px;
+    margin: 8px 0;
+    border: 1px solid #7f9cc4; 
+    border-radius: 8px;
+    font-size: 16px;
+    background: #c6dbf0; 
+    box-sizing: border-box;
+}
+</style>
+<body>
+  <fieldset>
+  <h1>ASSIGNMENT NO:01</h1>
+  <h1>Enter Message</h1>
+  <input type="text" id="greetingMessage" placeholder="ENTER MESSAGE HERE" class="text"><br><br>
+  <button onclick="displayGreeting()">SUBMIT</button>
+  <div id="output"></div>
+</fieldset>
+<br><br>
+<fieldset>
+   <h1>ASSIGNMENT NO:02</h1>
+  <h1>Addition of Two Numbers</h1>
+  <div class="input-container">
+    <input type="number" id="numb1" placeholder="ENTER FIRST NUMBER">
+    <input type="number" id="numb2" placeholder="ENTER SECOND NUMBER">
+  </div><br>
+  <button onclick="addNumbers()" class="btn-2">ADD</button>
+  <div id="result"></div>
+  </fieldset>
+  <br><br>
+  <fieldset>
+  <H1>ASSIGNMENT NO:03</H1>
+  <h1>Find the Largest Numbers</h1>
+    <div class="input-container3">
+      <input type="number" id="num1" placeholder="Enter first number" >
+      <input type="number" id="num2" placeholder="Enter second number">
+      <input type="number" id="num3" placeholder="Enter third number">
+    </div><br>
+    <button onclick="findLargest()" class="btn-3"> FIND</button>
+    <div id="resultdiv"></div>
+  </fieldset>
+  <br><br>
+  <fieldset>
+  <div class="container4">
+    <h1>ASSIGNMENT NO:04</h1>
+    <h1>Even or Odd Checker</h1>
+    <input type="number" id="numberInput" placeholder="Enter a number"><br><br>
+    <button onclick="checkEvenOdd()" class="button4">Check</button>
+    <div id="result4" class="result"></div>
+</div>
+</fieldset>
+<br><br>
+<fieldset>
+<div class="inputcontainer5">
+  <h1>ASSIGNMENT NO:05</h1>
+  <h1>Age Checker</h1>
+  <input type="number" id="ageInput" placeholder="Enter your age" ><br><br>
+  <button onclick="checkIfAdult()" class="btn-5">Check</button>
+  <div id="result5" class="result5"></div>
+</div>
+</fieldset>
+<br>
+<center>
+<h3><b>Submitted by:<u><i>Zainab Ali D/O Muhammad Ali</i></u></h3>
+</center>
+  <script>
+    function displayGreeting() {
+      const greeting = document.getElementById('greetingMessage').value;
+      if (greeting) {
+        document.getElementById('output').innerText = "OR SAWAL MT PUCHNA : " + greeting;
+      } else {
+        document.getElementById('output').innerText = "Please enter a message.";
+      }
+    }
+    function addNumbers() {
+      const num1 = parseFloat(document.getElementById('numb1').value);
+      const num2 = parseFloat(document.getElementById('numb2').value);
+      if (!isNaN(num1) && !isNaN(num2)) {
+        const sum = num1 + num2;
+        document.getElementById('result').innerText = " Answer is: " + sum;
+      } else {
+        document.getElementById('result').innerText = "Please enter a numbers for product.";
+      }
+    }
+    function findLargest() {
+      const num1 = parseFloat(document.getElementById('num1').value);
+      const num2 = parseFloat(document.getElementById('num2').value);
+      const num3 = parseFloat(document.getElementById('num3').value);
+      if (!isNaN(num1) && !isNaN(num2) && !isNaN(num3)) {
+        const largest = Math.max(num1, num2, num3);
+        document.getElementById('resultdiv').innerText = "The largest number is: " + largest;
+      } else {
+        document.getElementById('resultdiv').innerText = "Please enter valid numbers for all fields.";
+      }
+    }
+    function checkEvenOdd() {
+        var number = document.getElementById("numberInput").value;
+
+        if (number === "") {
+            alert("Please enter a number.");
+            return;
+        }
+        var resultText;
+        var resultClass;
+        if (number % 2 === 0) {
+            resultText = number + " is even.";
+            resultClass = "even";
+        } else {
+            resultText = number + " is odd.";
+            resultClass = "odd";
+        }
+        var resultDiv = document.getElementById("result4");
+        resultDiv.textContent = resultText;
+        resultDiv.className = "result " + resultClass;
+    }
+    function checkIfAdult() {
+        var age = document.getElementById("ageInput").value;
+        if (age === "" || age <= 0) {
+            alert("Please enter a valid age.");
+            return;
+        }
+        var resultText;
+        var resultClass;
+        if (age >= 18) {
+            resultText = "You are an adult.";
+            resultClass = "adult";
+        } else {
+            resultText = "You are a minor.";
+            resultClass = "minor";
+        }
+        var resultDiv = document.getElementById("result5");
+        resultDiv.textContent = resultText;
+        resultDiv.className = "result5 " + resultClass;
+    } 
+  </script>
+</body>
+</html>
